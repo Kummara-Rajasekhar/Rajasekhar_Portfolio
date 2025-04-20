@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kummara Rajasekhar | Full-Stack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#3B82F6',
+            secondary: '#10B981',
+            dark: '#1E293B',
+            light: '#F8FAFC',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'fade-in': 'fadeIn 1s ease-in',
+            'slide-up': 'slideUp 0.8s ease-out',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(50px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer components {
+        .nav-link {
+          @apply relative px-4 py-2 font-medium text-slate-700 dark:text-slate-300 hover:text-primary transition-colors duration-300;
+        }
+        .nav-link::after {
+          @apply content-[''] absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary transition-all duration-300;
+        }
+        .nav-link:hover::after {
+          @apply left-0 w-full;
+        }
+        .btn-primary {
+          @apply px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+        }
+        .card {
+          @apply bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
+        }
+        .skill-bar {
+          @apply w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden;
+        }
+        .skill-progress {
+          @apply h-full bg-gradient-to-r from-primary to-secondary rounded-full;
+        }
+        .contact-input {
+          @apply w-full px-4 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300;
+        }
+      }
+      
+      /* Background animation */
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(-45deg, #3B82F6, #10B981, #3B82F6, #10B981);
+        background-size: 400% 400%;
+        z-index: -1;
+        animation: gradientBG 15s ease infinite;
+      }
+      
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-900">
+  <!-- Header -->
+  <header class="fixed w-full z-50 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 shadow-sm">
+    <nav class="container mx-auto px-6 py-4">
+      <ul class="flex justify-center space-x-2 md:space-x-6">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#additionalinfo" class="nav-link">Achievements</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="md:w-1/2 animate-fade-in">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 text-dark dark:text-white">
+            Hi, I'm <span class="text-black">Kummara Rajasekhar</span>
+          </h1>
+          <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary">
+            Full-Stack Developer
+          </h2>
+          <p class="text-lg mb-8 text-slate-600 dark:text-slate-300">
+            A passionate developer building full-stack web applications with MERN stack.
+            Solved 750+ algorithmic problems on LeetCode with strong problem-solving skills.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#contact" class="btn-primary">
+              Let's Talk <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <a href="#projects"
+              class="px-6 py-3 border-2 border-primary text-primary font-medium rounded-full hover:bg-primary hover:text-white transition-all duration-300">
+              View Projects
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center animate-float">
+          <div
+            class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
+            <img src="MyImage (1).jpg" alt="Profile" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-slate-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
+          <span class="relative inline-block">
+            About Me
+            <span class="absolute bottom-0 left-0 w-full h-1 bg-primary rounded-full"></span>
+          </span>
+        </h2>
+
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/3 flex justify-center">
+            <div class="relative w-64 h-64 rounded-2xl overflow-hidden shadow-xl animate-slide-up">
+              <img src="22102A040101.jpg" alt="About" class="w-full h-full object-cover">
+              <div class="absolute inset-0  opacity-20"></div>
+            </div>
+          </div>
+          <div class="md:w-2/3 animate-slide-up">
+            <p class="text-lg mb-6 text-slate-600 dark:text-slate-300">
+              Aspiring Software Engineer with strong fundamentals in full-stack development, data structures, and cloud
+              technologies.
+              Currently pursuing B.Tech in Computer Science with a CGPA of 9.83.
+              Experienced in building scalable web applications using MERN and Spring Boot.
+            </p>
+            <p class="text-lg mb-6 text-slate-600 dark:text-slate-300">
+              Proven problem-solver with 750+ LeetCode challenges solved and a track record of delivering real-world
+              projects.
+              Eager to join a dynamic team to contribute to impactful software solutions.
+            </p>
+            <p class="text-lg text-slate-600 dark:text-slate-300">
+              A curious and dedicated developer-in-training, I believe great software starts with empathy and
+              collaboration.
+              With hands-on experience in full-stack development, cloud integration, and algorithmic thinking,
+              I've built and deployed solutions that solve real problems.
+            </p>
+            <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div class="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-primary">750+</div>
+                <div class="text-sm">LeetCode Problems</div>
+              </div>
+              <div class="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-primary">20+</div>
+                <div class="text-sm">Projects</div>
+              </div>
+              <div class="bg-slate-100 dark:bg-slate-700 p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-primary">9.83</div>
+                <div class="text-sm">CGPA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-slate-50 dark:bg-slate-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
+          <span class="relative inline-block">
+            My Education
+            <span class="absolute bottom-0 left-0 w-full h-1 bg-primary rounded-full"></span>
+          </span>
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Education Card 1 -->
+          <div class="card animate-slide-up" style="animation-delay: 0.1s">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                  <i class="fas fa-school text-primary text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold">10th Class</h3>
+              </div>
+              <p class="text-secondary font-medium mb-2">Universal High School</p>
+              <p class="text-slate-500 dark:text-slate-400 mb-2">2020 | CGPA: 8.8</p>
+              <p class="text-slate-600 dark:text-slate-300">
+                Palamaner, Chittoor(District), AP.
+              </p>
+            </div>
+          </div>
+
+          <!-- Education Card 2 -->
+          <div class="card animate-slide-up" style="animation-delay: 0.2s">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                  <i class="fas fa-university text-primary text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold">Intermediate</h3>
+              </div>
+              <p class="text-secondary font-medium mb-2">Mother Junior College</p>
+              <p class="text-slate-500 dark:text-slate-400 mb-2">2022 | Percentage: 96%</p>
+              <p class="text-slate-600 dark:text-slate-300">
+                Palamaner, Chittoor(District), AP.
+              </p>
+            </div>
+          </div>
+
+          <!-- Education Card 3 -->
+          <div class="card animate-slide-up" style="animation-delay: 0.3s">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                  <i class="fas fa-graduation-cap text-primary text-xl"></i>
+                </div>
+                <h3 class="text-xl font-bold">B-Tech CSE</h3>
+              </div>
+              <p class="text-secondary font-medium mb-2">Mohan Babu University</p>
+              <p class="text-slate-500 dark:text-slate-400 mb-2">2022-2026 | CGPA: 9.83</p>
+              <p class="text-slate-600 dark:text-slate-300">
+                Rangampeta, Tirupati, AP.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white dark:bg-slate-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
+          <span class="relative inline-block">
+            My Skills
+            <span class="absolute bottom-0 left-0 w-full h-1 bg-primary rounded-full"></span>
+          </span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Left Column -->
+          <div class="space-y-6">
+            <div class="animate-slide-up" style="animation-delay: 0.1s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Java</span>
+                <span class="text-primary font-bold">100%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 100%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.15s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Python</span>
+                <span class="text-primary font-bold">100%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 100%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.2s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">C</span>
+                <span class="text-primary font-bold">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.25s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">C++</span>
+                <span class="text-primary font-bold">75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.3s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">HTML</span>
+                <span class="text-primary font-bold">100%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 100%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.35s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">CSS</span>
+                <span class="text-primary font-bold">100%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 100%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="space-y-6">
+            <div class="animate-slide-up" style="animation-delay: 0.4s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">JavaScript</span>
+                <span class="text-primary font-bold">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.45s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">React.js</span>
+                <span class="text-primary font-bold">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.5s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Node.js</span>
+                <span class="text-primary font-bold">80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.55s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">MongoDB</span>
+                <span class="text-primary font-bold">75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.6s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">MySQL</span>
+                <span class="text-primary font-bold">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="animate-slide-up" style="animation-delay: 0.65s">
+              <div class="flex justify-between mb-2">
+                <span class="font-medium">Data Structures</span>
+                <span class="text-primary font-bold">95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-50 dark:bg-slate-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
+          <span class="relative inline-block">
+            Recent Projects
+            <span class="absolute bottom-0 left-0 w-full h-1 bg-primary rounded-full"></span>
+          </span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <a href="https://github.com/Kummara-Rajasekhar/PreScripto_Doctor_Appointment_WebApp" target="_blank"
+            class="card group animate-slide-up" style="animation-delay: 0.1s">
+            <div class="relative overflow-hidden h-48">
+              <img
+                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Doctor Appointment"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div
+                class="absolute inset-0 bg-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-white font-bold text-lg">View Project</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Doctor Appointment Booking</h3>
+              <p class="text-slate-600 dark:text-slate-300">
+                A web application for booking doctor appointments with user and admin dashboards.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">React</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Node.js</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">MongoDB</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 2 -->
+          <a href="https://github.com/Kummara-Rajasekhar/Food-Waste-Management" target="_blank"
+            class="card group animate-slide-up" style="animation-delay: 0.2s">
+            <div class="relative overflow-hidden h-48">
+              <img
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80"
+                alt="Food Waste Management"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div
+                class="absolute inset-0 bg-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-white font-bold text-lg">View Project</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Zero Waste Food Management</h3>
+              <p class="text-slate-600 dark:text-slate-300">
+                A system to manage food waste by connecting donors with organizations.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">MERN</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Firebase</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Tailwind</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 3 -->
+          <a href="https://github.com/Kummara-Rajasekhar/Job_Portal_MERNPRoject" target="_blank"
+            class="card group animate-slide-up" style="animation-delay: 0.3s">
+            <div class="relative overflow-hidden h-48">
+              <img
+                src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                alt="Job Portal"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div
+                class="absolute inset-0 bg-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-white font-bold text-lg">View Project</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Job Portal Application</h3>
+              <p class="text-slate-600 dark:text-slate-300">
+                A full-stack job portal connecting employers with job seekers.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">MERN</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">JWT</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Redux</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 4 -->
+          <a href="https://github.com/Kummara-Rajasekhar/Backend_Shopping_Cart_Application" target="_blank"
+            class="card group animate-slide-up" style="animation-delay: 0.4s">
+            <div class="relative overflow-hidden h-48">
+              <img
+                src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Shopping Cart"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div
+                class="absolute inset-0 bg-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-white font-bold text-lg">View Project</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Shopping Cart Application</h3>
+              <p class="text-slate-600 dark:text-slate-300">
+                Backend implementation for an e-commerce shopping cart system.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Node.js</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Express</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">MongoDB</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project 5 -->
+          <a href="https://github.com/Kummara-Rajasekhar/E-Commerce-Website" target="_blank"
+            class="card group animate-slide-up" style="animation-delay: 0.5s">
+            <div class="relative overflow-hidden h-48">
+              <img
+                src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="E-commerce"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div
+                class="absolute inset-0 bg-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-white font-bold text-lg">View Project</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">E-commerce Application</h3>
+              <p class="text-slate-600 dark:text-slate-300">
+                Full-featured e-commerce platform with product listings and cart functionality.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">React</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Firebase</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Stripe</span>
+              </div>
+            </div>
+          </a>
+          <!-- Project 6 -->
+          <a href="https://github.com/Kummara-Rajasekhar/Real-Time-Chat-App" target="_blank"
+            class="card group animate-slide-up" style="animation-delay: 0.5s">
+            <div class="relative overflow-hidden h-48">
+              <img src="hq720.jpg" alt="E-commerce"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              <div
+                class="absolute inset-0 bg-primary/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="text-white font-bold text-lg">View Project</span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">Real Time Chat App </h3>
+              <p class="text-slate-600 dark:text-slate-300">
+                Built a real-time chat application using Socket.io, Node.js, and React.js for seamless instant
+                messaging.
+              </p>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">React</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Node.js</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">MongoDB</span>
+                <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full">Express.js</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Info Section -->
+    <section id="additionalinfo" class="py-20 bg-white dark:bg-slate-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
+          <span class="relative inline-block">
+            Achievements & Certifications
+            <span class="absolute bottom-0 left-0 w-full h-1 bg-primary rounded-full"></span>
+          </span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div class="card p-6 text-center animate-slide-up" style="animation-delay: 0.1s">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+              <i class="fas fa-laptop-code text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Full-Stack Developer</h3>
+            <p class="text-slate-600 dark:text-slate-300">
+              Skilled in React, Tailwind, Node.js, Spring Boot, MongoDB, and MySQL for building scalable web apps.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card p-6 text-center animate-slide-up" style="animation-delay: 0.2s">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+              <i class="fas fa-graduation-cap text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Academic Excellence</h3>
+            <p class="text-slate-600 dark:text-slate-300">
+              B.Tech CSE with 9.83 CGPA, strong in DSA, OOP, OS, ML, and certified in Java, Python, MERN.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card p-6 text-center animate-slide-up" style="animation-delay: 0.3s">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+              <i class="fas fa-project-diagram text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Project Experience</h3>
+            <p class="text-slate-600 dark:text-slate-300">
+              Built doctor apps, job portals, e-commerce sites with cloud deployment and role-based features.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="card p-6 text-center animate-slide-up" style="animation-delay: 0.4s">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+              <i class="fas fa-trophy text-primary text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">LeetCode Expert</h3>
+            <p class="text-slate-600 dark:text-slate-300">
+              Solved 750+ algorithmic problems demonstrating strong problem-solving and coding skills.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-50 dark:bg-slate-900">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
+          <span class="relative inline-block">
+            Get In Touch
+            <span class="absolute bottom-0 left-0 w-full h-1 bg-primary rounded-full"></span>
+          </span>
+        </h2>
+
+        <div class="flex flex-col lg:flex-row gap-12">
+          <!-- Contact Info -->
+          <div class="lg:w-1/2 animate-slide-up">
+            <h3 class="text-2xl font-bold mb-6">Let's talk about opportunities!</h3>
+            <p class="text-lg mb-8 text-slate-600 dark:text-slate-300">
+              I'm actively looking for full-time opportunities as a Software Developer.
+              If you have any openings or just want to connect, feel free to reach out!
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-envelope text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">Email</h4>
+                  <a href="mailto:kummararajasekhar17092004@gmail.com"
+                    class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+                    kummararajasekhar17092004@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-phone-alt text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">Phone</h4>
+                  <a href="tel:+916304692069"
+                    class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+                    +91 6304692069
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1">
+                  <i class="fas fa-map-marker-alt text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold">Location</h4>
+                  <p class="text-slate-600 dark:text-slate-300">
+                    Tirupati, Andhra Pradesh, India
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <h4 class="font-bold mb-4">Connect with me:</h4>
+              <div class="flex space-x-4">
+                <a href="https://www.linkedin.com/in/k-rajasekhar-b5607029b/"
+                  class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/Kummara-Rajasekhar?tab=following"
+                  class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#"
+                  class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/"
+                  class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <!-- Contact Form -->
+          <div class="lg:w-1/2 animate-slide-up">
+            
+            <form id="contact-form" class="card p-8" novalidate>
+              <input type="hidden" name="form-name" value="contact">
+              <input type="hidden" name="_emailjs_origin" value="portfolio_contact">
+              
+              <div class="mb-6">
+                <label for="name" class="block font-medium mb-2 text-gray-700 dark:text-gray-300">
+                  Your Name <span class="text-red-500">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="from_name" 
+                  class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  required
+                  minlength="2"
+                  maxlength="50"
+                  pattern="[A-Za-z ]+"
+                  aria-describedby="name-help"
+                >
+                <p id="name-help" class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  Please enter your full name (letters only)
+                </p>
+              </div>
+              
+              <div class="mb-6">
+                <label for="email" class="block font-medium mb-2 text-gray-700 dark:text-gray-300">
+                  Your Email <span class="text-red-500">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="from_email" 
+                  class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  required
+                  aria-describedby="email-help"
+                >
+                <p id="email-help" class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  We'll never share your email with anyone
+                </p>
+              </div>
+              
+              <div class="mb-6">
+                <label for="message" class="block font-medium mb-2 text-gray-700 dark:text-gray-300">
+                  Message <span class="text-red-500">*</span>
+                </label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="5" 
+                  class="contact-input w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  required
+                  minlength="10"
+                  maxlength="500"
+                  aria-describedby="message-help"
+                ></textarea>
+                <p id="message-help" class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  Please enter at least 10 characters (max 500)
+                </p>
+              </div>
+              
+              <div class="mb-4 flex items-center">
+                <input 
+                  type="checkbox" 
+                  id="consent" 
+                  name="consent" 
+                  class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
+                  required
+                >
+                <label for="consent" class="ml-2 text-sm text-gray-700 dark:text-gray-300">
+                  I consent to having my data processed according to your 
+                  <a href="/privacy" class="text-blue-600 hover:underline">privacy policy</a>
+                </label>
+              </div>
+              
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <button 
+                  type="submit" 
+                  id="submit-btn"
+                  class="btn-primary w-full flex justify-center items-center py-3 px-6 font-medium rounded-full shadow-lg transition-all duration-300 hover:shadow-xl"
+                >
+                  <span id="btn-text">Send Message</span>
+                  <i class="fas fa-paper-plane ml-2" aria-hidden="true"></i>
+                </button>
+                
+                <button 
+                  type="reset" 
+                  class="w-full py-3 px-6 border border-gray-300 dark:border-gray-600 rounded-full font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300"
+                >
+                  Clear Form
+                </button>
+              </div>
+              
+              <div id="form-alert" class="hidden mt-4 p-4 rounded-lg" role="alert"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+
+  <!-- Back to Top Button -->
+  <a href="#home"
+    class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-secondary transition-colors duration-300">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+  
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    // Initialize EmailJS with your Public Key
+    (function() {
+      try {
+        emailjs.init('user_72LbP82LaMlhaoQI_');
+        console.log('EmailJS initialized successfully');
+      } catch (error) {
+        console.error('EmailJS initialization failed:', error);
+      }
+    })();
+  
+    document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const form = e.target;
+      const btn = document.getElementById('submit-btn');
+      const alert = document.getElementById('form-alert');
+      
+      if (!form || !btn || !alert) {
+        console.error('Required elements not found');
+        return;
+      }
+  
+      // Show loading state
+      btn.disabled = true;
+      const originalBtnText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+      alert.classList.add('hidden');
+      
+      try {
+        console.log('Attempting to send email...');
+        const response = await emailjs.sendForm(
+          'service_j0nxkgn', 
+          'template_dnpgchd', 
+          form
+        );
+        
+        console.log('EmailJS response:', response);
+        if (response.status === 200) {
+          alert.textContent = 'Message sent successfully!';
+          alert.className = 'mt-4 p-4 rounded-lg bg-green-100 text-green-800';
+          form.reset();
+        } else {
+          throw new Error(`Unexpected status: ${response.status}`);
+        }
+      } catch (error) {
+        console.error('Email sending failed:', error);
+        alert.textContent = error.message.includes('Invalid')
+          ? 'Please check your form inputs'
+          : 'Failed to send message. Please try again later.';
+        alert.className = 'mt-4 p-4 rounded-lg bg-red-100 text-red-800';
+        
+        // Additional error logging
+        if (error.response) {
+          console.error('Error details:', error.response);
+        }
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalBtnText;
+        alert.classList.remove('hidden');
+        
+        // Hide alert after 5 seconds
+        setTimeout(() => {
+          alert.classList.add('hidden');
+        }, 5000);
+      }
+    });
+  </script>
+
+</body>
+
+</html>
