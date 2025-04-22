@@ -26,8 +26,10 @@ Follow these steps to run the project locally:
 1. Clone the Repository
    git clone https://github.com/your-username/your-repo-name.git
 2. Navigate into the Project Folder
+
    cd portfolio
-3. Open the Website in Your Browser
+   
+4. Open the Website in Your Browser
 
    You can simply open the index.html file with your preferred browser:
 
@@ -38,7 +40,8 @@ Follow these steps to run the project locally:
    ✅ No additional setup or dependencies are required since this is a static front-end project.
 
 5. Project Structure
-   index.html
+   
+    index.html
     Main HTML file that structures the webpage.
     
     css/
@@ -53,7 +56,7 @@ Follow these steps to run the project locally:
     
     Folder for images, icons, and other static resources used in the website.
 
-6. Code Quality
+7. Code Quality
    
    Well-organized and modular code.
 
@@ -63,7 +66,7 @@ Follow these steps to run the project locally:
 
    Responsive design using CSS Flexbox/Grid and media queries.
 
-7. Contact
+8. Contact
    If you'd like to connect, feel free to reach out:
 
    📧 Email: kummararajasekhar17092004@gmail.com
@@ -75,15 +78,19 @@ Follow these steps to run the project locally:
 7. Steps to Run the Project Locally
 
    Clone the Repository
+   
    Open your terminal and run:
    
    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/Kummara-Rajasekhar/Rajasekhar_Portfolio.git)
    
    Navigate into the Project Directory
+   
    cd portfolio
    
    Open the Project in a Browser
+   
    Since this is a static front-end project, no installation is required. You can open the site by:
+   
   
     Option 1: Double-clicking the index.html file.
   
