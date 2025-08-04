@@ -1,103 +1,198 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/411d7d54-e79c-43be-b1f3-a0495f829f86/deploy-status)](https://app.netlify.com/sites/rajasekhar-pf/deploys)
+# Kummara Rajasekhar - Portfolio Website
 
-# 💼 Personal Portfolio Website
+A modern, responsive portfolio website built with React.js, featuring smooth animations, dark mode toggle, and a comprehensive showcase of skills, projects, and achievements.
 
-Welcome to my **Personal Portfolio Website** repository! This project is a showcase of my skills, projects, and experience, built using **HTML**, **CSS**, and **JavaScript**.
+## 🚀 Features
 
-## 📝 Task Objectives
+- **Modern Design**: Clean and professional design with gradient effects
+- **Responsive**: Fully responsive design that works on all devices
+- **Dark Mode**: Toggle between light and dark themes
+- **Smooth Animations**: Framer Motion animations for enhanced user experience
+- **Interactive Elements**: Hover effects, scroll animations, and interactive components
+- **Contact Form**: Functional contact form with validation
+- **Particle Background**: Animated particle background for visual appeal
+- **SEO Optimized**: Meta tags and proper structure for search engines
 
-- Developed a responsive personal portfolio website.
-- Present my professional background, skills, and featured projects.
-- Enhance user experience with smooth interactivity using JavaScript.
-- Apply best practices in writing clean, modular, and well-commented code.
-- Host the project on GitHub with a dedicated repository.
+## 🛠️ Technologies Used
 
-## 📸 Website Features
+- **React.js** - Frontend framework
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Animation library
+- **React Icons** - Icon library
+- **React Scroll** - Smooth scrolling
+- **React Typed** - Typing animation effect
+- **React Intersection Observer** - Scroll-based animations
 
-- Responsive layout compatible with all screen sizes.
-- Smooth navigation and interactive elements.
-- Clean and modern design.
-- Sections include: About Me, Skills, Projects, Contact, etc.
-- Easy to maintain and extend.
+## 📋 Sections
+
+1. **Hero Section** - Introduction with typing animation
+2. **About** - Personal information and statistics
+3. **Education** - Academic background with timeline
+4. **Skills** - Technical skills with animated progress bars
+5. **Experience** - Work experience and achievements
+6. **Projects** - Portfolio projects with GitHub links
+7. **Achievements** - Certifications and accomplishments
+8. **Contact** - Contact form and social links
+
+## 🎨 Design Features
+
+- **Gradient Backgrounds**: Dynamic gradient animations
+- **Glass Morphism**: Modern glass effect components
+- **Hover Effects**: Interactive hover animations
+- **Scroll Animations**: Elements animate on scroll
+- **Particle Effects**: Floating particle background
+- **Custom Scrollbar**: Styled scrollbar with gradient
 
 ## 🚀 Getting Started
 
-Follow these steps to run the project locally:
-1. Clone the Repository
-   git clone https://github.com/your-username/your-repo-name.git
-2. Navigate into the Project Folder
+### Prerequisites
 
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
    cd portfolio
-   
-4. Open the Website in Your Browser
+   ```
 
-   You can simply open the index.html file with your preferred browser:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-   Double-click index.html, or
-   
-   Right-click and choose Open with → Browser
-   
-   ✅ No additional setup or dependencies are required since this is a static front-end project.
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-5. Project Structure
-   
-    index.html
-    Main HTML file that structures the webpage.
-    
-    css/
-    
-    style.css — Contains all custom CSS styles for the portfolio.
-    
-    js/
-    
-    script.js — Handles JavaScript functionality and interactivity.
-    
-    assets/
-    
-    Folder for images, icons, and other static resources used in the website.
+4. **Open your browser**
+   Navigate to `http://localhost:3000`
 
-7. Code Quality
-   
-   Well-organized and modular code.
+### Build for Production
 
-   Semantic HTML5 elements for structure.
+```bash
+npm run build
+```
 
-   Comments added to explain key parts of the code.
+## 📁 Project Structure
 
-   Responsive design using CSS Flexbox/Grid and media queries.
+```
+src/
+├── components/
+│   ├── Navbar.js
+│   ├── Hero.js
+│   ├── About.js
+│   ├── Education.js
+│   ├── Skills.js
+│   ├── Experience.js
+│   ├── Projects.js
+│   ├── Achievements.js
+│   ├── Contact.js
+│   ├── Footer.js
+│   └── ParticleBackground.js
+├── App.js
+├── index.js
+└── index.css
+```
 
-8. Contact
-   If you'd like to connect, feel free to reach out:
+## 🎯 Key Features
 
-   📧 Email: kummararajasekhar17092004@gmail.com
-  
-   🌐 Portfolio: [yourwebsite.com](https://rajasekhar-pf.netlify.app/)
-  
-   💼 LinkedIn: [YourLinkedIn](https://www.linkedin.com/in/k-rajasekhar-b5607029b/)
-  
-7. Steps to Run the Project Locally
+### Animations
+- **Fade In**: Elements fade in on scroll
+- **Slide Up**: Content slides up from bottom
+- **Scale**: Interactive scale animations
+- **Typing Effect**: Hero section typing animation
+- **Progress Bars**: Animated skill progress bars
 
-   Clone the Repository
-   
-   Open your terminal and run:
-   
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/Kummara-Rajasekhar/Rajasekhar_Portfolio.git)
-   
-   Navigate into the Project Directory
-   
-   cd portfolio
-   
-   Open the Project in a Browser
-   
-   Since this is a static front-end project, no installation is required. You can open the site by:
-   
-  
-    Option 1: Double-clicking the index.html file.
-  
-    Option 2: Right-clicking index.html → Open with → Your preferred browser.
-  
-    ✅ That's it! You're all set to view and explore the portfolio website locally.
-  
-    
+### Interactive Elements
+- **Dark Mode Toggle**: Switch between light and dark themes
+- **Smooth Scrolling**: Navigation with smooth scroll
+- **Form Validation**: Contact form with real-time validation
+- **Hover Effects**: Interactive hover states
+
+### Performance
+- **Lazy Loading**: Images and components load efficiently
+- **Optimized Animations**: Hardware-accelerated animations
+- **Responsive Images**: Optimized for different screen sizes
+
+## 🎨 Customization
+
+### Colors
+The color scheme can be customized in `tailwind.config.js`:
+```javascript
+colors: {
+  primary: {
+    500: '#3B82F6', // Blue
+  },
+  secondary: {
+    500: '#22C55E', // Green
+  }
+}
+```
+
+### Content
+Update the content in each component file to match your information:
+- Personal details in `Hero.js`
+- Skills in `Skills.js`
+- Projects in `Projects.js`
+- Contact information in `Contact.js`
+
+### Images
+Replace the profile images in the `public` folder:
+- `MyImage (1).jpg` - Hero section image
+- `22102A040101.jpg` - About section image
+
+## 📱 Responsive Design
+
+The portfolio is fully responsive and optimized for:
+- **Desktop**: Full layout with all features
+- **Tablet**: Adjusted layout for medium screens
+- **Mobile**: Mobile-first design with touch-friendly interactions
+
+## 🌟 Performance Optimizations
+
+- **Code Splitting**: Components load on demand
+- **Image Optimization**: Compressed and optimized images
+- **CSS Optimization**: Purged unused CSS
+- **Bundle Optimization**: Minimized bundle size
+
+## 🔧 Development
+
+### Available Scripts
+
+- `npm start` - Start development server
+- `npm build` - Build for production
+- `npm test` - Run tests
+- `npm eject` - Eject from Create React App
+
+### Adding New Sections
+
+1. Create a new component in `src/components/`
+2. Import and add to `App.js`
+3. Add navigation link in `Navbar.js`
+4. Style with Tailwind CSS classes
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📞 Contact
+
+- **Email**: kummararajasekhar17092004@gmail.com
+- **LinkedIn**: [Kummara Rajasekhar](https://www.linkedin.com/in/k-raja-sekhar-990349284/)
+- **GitHub**: [Kummara-Rajasekhar](https://github.com/Kummara-Rajasekhar)
+- **LeetCode**: [kummara_rajasekhar](https://leetcode.com/u/kummara_rajasekhar/)
+
+---
+
+**Made with ❤️ by Kummara Rajasekhar**
+
 
 
